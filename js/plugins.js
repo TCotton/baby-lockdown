@@ -45,7 +45,7 @@ const options = {
       displayMilliseconds: false,
       debug: true,
       barGap: 10,
-      waveColor: '#fac32d',
+      waveColor: '#152868',
       progressColor: '#cc3215',
       cursorColor: 'white',
       barHeight: 1,
@@ -79,8 +79,11 @@ let player = videojs('myVideo', options, function() {
 
 player.on('waveReady', function() {
   console.log('waveform: ready!');
-  const loading = document.querySelector('.loading');
-  loading.forEach(n => n.classList.remove('.loading'));
+  console.log('Thanks for the tunes Four Tet');
+  const loading = document.querySelectorAll('.loading');
+  if(loading) loading.forEach(x => x.classList.remove('.loading'));
+  const ldsRoller = document.querySelector('.lds-roller');
+  ldsRoller.classList.add('loading');
 });
 
 player.on('playbackFinish', function() {
