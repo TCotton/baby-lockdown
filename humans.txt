@@ -4,12 +4,14 @@
 # TEAM
 
     <name> -- <role> -- <twitter>
+    andy walpole -- web developer = @AndrewWalpole5
 
 # THANKS
 
     <name>
+    four tet
 
 # TECHNOLOGY COLOPHON
 
     CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    video.js, videojs-wavesurfer, wavesurfer.js

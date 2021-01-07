@@ -1,8 +1,8 @@
 {
   "name": "baby",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A lockdown visual remix for FourTet",
-  "keywords": "baby fourtet",
+  "keywords": ["baby", "four tet"],
   "license": "",
   "author": "",
   "scripts": {
