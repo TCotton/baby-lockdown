@@ -1,0 +1,27 @@
+{
+  "name": "baby",
+  "version": "0.0.1",
+  "description": "A lockdown visual remix for FourTet",
+  "keywords": "baby fourtet",
+  "license": "",
+  "author": "",
+  "scripts": {
+    "build": "parcel build index.html",
+    "dev": "parcel index.html --open",
+    "start": "npm run build && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.32.2"
+  },
+  "dependencies": {
+    "video.js": "^7.10.2",
+    "videojs-wavesurfer": "^3.3.1",
+    "wavesurfer.js": "^4.3.0"
+  },
+  "resolutions": {
+    "browserslist": "4.14.2",
+    "caniuse-lite": "1.0.30001129"
+  }
+}

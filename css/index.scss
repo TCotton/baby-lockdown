@@ -1,0 +1,67 @@
+@import 'reset';
+@import 'custom_properties';
+@import 'variables';
+@import 'mixin';
+@import '/node_modules/video.js/src/css/video-js.scss';
+@import '/node_modules/videojs-wavesurfer/src/css/videojs.wavesurfer.scss';
+
+body {
+  font-family: $baseFontFamily;
+  line-height: #{$baseLineHeight};
+  overflow-x: hidden;
+  position: relative;
+  color: rgba(36, 23, 69, 0.9);
+  background: black;
+  color: white;
+}
+
+html {
+  font-size: #{$baseFontSize};
+  overflow-x: hidden;
+  background: black;
+}
+body, html {
+  height: 100%;
+  display: grid;
+  > {
+    .wrapper {
+      margin: auto;
+    }
+  }
+}
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#waveform {
+  object-fit: cover;
+  width: 100vw;
+  position: fixed;
+  top: auto;
+  left: 0;
+}
+main {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+video {
+  object-fit: cover; // change to match intrinsic value
+}
+#myVideo {
+  border: 5px solid white;
+}
+loading {
+  display: none;
+}
