@@ -32,8 +32,8 @@ if(window.location.host !== 'rough-cloud-0056.on.fleek.co') {
   smallVideo = require('./../assets/baby-smaller.mp4');
 }
 if(window.location.host === 'rough-cloud-0056.on.fleek.co') {
-  smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
-  largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
+  smallVideo = 'https://ed23a9d72f037b01ef5a-f919f4c862fd2770d5d9ff992baca219.ssl.cf3.rackcdn.com/baby-smaller.mp4';
+  largeVideo = 'https://ed23a9d72f037b01ef5a-f919f4c862fd2770d5d9ff992baca219.ssl.cf3.rackcdn.com/baby-smaller.mp4';
 }
 import poster from './../img/eye.jpg';
 const video = connection === 'slow'? smallVideo: largeVideo;
