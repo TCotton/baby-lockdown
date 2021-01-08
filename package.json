@@ -2,7 +2,10 @@
   "name": "baby",
   "version": "1.0.0",
   "description": "A lockdown visual remix for FourTet",
-  "keywords": ["baby", "four tet"],
+  "keywords": [
+    "baby",
+    "four tet"
+  ],
   "license": "",
   "author": "",
   "scripts": {
@@ -13,6 +16,7 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-imagemin": "^4.0.2",
     "sass": "^1.32.2"
   },
   "dependencies": {
