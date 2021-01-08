@@ -34,23 +34,23 @@ if (isSupportedType) {
   }
 }
 
-if(isSupportedSaveData) {
+if (isSupportedSaveData) {
   nc = navigator?.connection;
-  if(nc.saveData) {
+  if (nc.saveData) {
     connection = 'slow';
   }
 }
 
-if(isSupportedDeviceMemory) {
+if (isSupportedDeviceMemory) {
   nm = navigator?.deviceMemory;
   connection = nm < 1 ? 'slow' : 'fast';
 }
 
-const mediaQuery = window.matchMedia('(max-width: 950px)');
+const mediaQuery = window.matchMedia('(max-width: 950px)').matches;
 
 if (mediaQuery.matches) {
   connection = 'slow';
 }
 
-export { connection };
+export {connection, mediaQuery};
 

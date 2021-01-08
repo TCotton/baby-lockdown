@@ -1,5 +1,9 @@
+import {connection, mediaQuery} from './main';
+import videojs from 'video.js';
+import 'wavesurfer.js';
+import WaveSurfer from 'videojs-wavesurfer';
+import poster from './../img/eye.jpg';
 // Avoid `console` errors in browsers that lack a console.
-import { connection } from './main';
 (function () {
   let method;
   let noop = function () {
@@ -22,21 +26,18 @@ import { connection } from './main';
     }
   }
 }());
-import videojs from 'video.js';
-import 'wavesurfer.js';
-import WaveSurfer from 'videojs-wavesurfer';
+
 let largeVideo;
 let smallVideo;
-if(window.location.host !== 'rough-cloud-0056.on.fleek.co') {
+if (window.location.host !== 'rough-cloud-0056.on.fleek.co') {
   largeVideo = require('./../assets/baby-large.mp4');
   smallVideo = require('./../assets/baby-smaller.mp4');
 }
-if(window.location.host === 'rough-cloud-0056.on.fleek.co') {
+if (window.location.host === 'rough-cloud-0056.on.fleek.co') {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
 }
-import poster from './../img/eye.jpg';
-const video = connection === 'slow'? smallVideo: largeVideo;
+const video = connection === 'slow' ? smallVideo : largeVideo;
 const options = {
   controls: true,
   autoplay: false,
@@ -52,16 +53,18 @@ const options = {
       backend: 'MediaElement',
       displayMilliseconds: false,
       debug: true,
-      barGap: 10,
+      barGap: mediaQuery ? 2 : 10,
       waveColor: '#152868',
       progressColor: '#cc3215',
-      cursorColor: 'white',
+      cursorColor: mediaQuery ? 'darkgrey' : 'white',
+      cursorColor: mediaQuery ? 'darkgrey' : 'white',
       barHeight: 1,
-      cursorWidth: 10,
-      barWidth: 10,
+      cursorWidth: mediaQuery ? 1 : 10,
+      height: mediaQuery ? 64 : 128,
+      normalize: mediaQuery ? true : false,
+      barWidth: mediaQuery ? 2 : 10,
       barRadius: 0,
       hideScrollbar: true,
-      // put waveform in separate container
       container: '#waveform',
       responsive: true,
       partialRender: false,
@@ -73,7 +76,7 @@ const options = {
 };
 
 // create player
-let player = videojs('myVideo', options, function() {
+let player = videojs('myVideo', options, function () {
   // print version information at startup
   const msg = 'Using video.js ' + videojs.VERSION +
     ' with videojs-wavesurfer ' +
@@ -85,20 +88,20 @@ let player = videojs('myVideo', options, function() {
   player.src({src: video, type: 'video/mp4'});
 });
 
-player.on('waveReady', function() {
+player.on('waveReady', function () {
   console.log('waveform: ready!');
   console.log('Thanks for the tunes Four Tet');
   const loading = document.querySelectorAll('.loading');
-  if(loading) loading.forEach(x => x.classList.remove('.loading'));
+  if (loading) loading.forEach(x => x.classList.remove('.loading'));
   const ldsRoller = document.querySelector('.lds-roller');
   ldsRoller.classList.add('loading');
 });
 
-player.on('playbackFinish', function() {
+player.on('playbackFinish', function () {
   console.log('playback finished.');
 });
 
 // error handling
-player.on('error', function(element, error) {
+player.on('error', function (element, error) {
   console.warn('ERROR:', error);
 });
