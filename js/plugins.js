@@ -26,7 +26,11 @@ import videojs from 'video.js';
 import 'wavesurfer.js';
 import WaveSurfer from 'videojs-wavesurfer';
 import largeVideo from './../assets/baby-large.mp4';
+console.log('largeVideo');
+console.log(largeVideo);
 import smallVideo from './../assets/baby-smaller.mp4';
+console.log('smallVideo');
+console.log(smallVideo);
 import poster from './../img/eye.jpg';
 const video = connection === 'slow'? smallVideo: largeVideo;
 const options = {
