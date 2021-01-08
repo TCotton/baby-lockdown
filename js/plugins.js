@@ -25,12 +25,16 @@ import { connection } from './main';
 import videojs from 'video.js';
 import 'wavesurfer.js';
 import WaveSurfer from 'videojs-wavesurfer';
-import largeVideo from './../assets/baby-large.mp4';
-console.log('largeVideo');
-console.log(largeVideo);
-import smallVideo from './../assets/baby-smaller.mp4';
-console.log('smallVideo');
-console.log(smallVideo);
+let largeVideo;
+let smallVideo;
+if(window.location.host !== 'rough-cloud-0056.on.fleek.co') {
+  largeVideo = require('./../assets/baby-large.mp4');
+  smallVideo = require('./../assets/baby-smaller.mp4');
+}
+if(window.location.host === 'rough-cloud-0056.on.fleek.co') {
+  smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
+  largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-large.mp4';
+}
 import poster from './../img/eye.jpg';
 const video = connection === 'slow'? smallVideo: largeVideo;
 const options = {
