@@ -33,7 +33,7 @@ if(window.location.host !== 'rough-cloud-0056.on.fleek.co') {
 }
 if(window.location.host === 'rough-cloud-0056.on.fleek.co') {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
-  largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-large.mp4';
+  largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
 }
 import poster from './../img/eye.jpg';
 const video = connection === 'slow'? smallVideo: largeVideo;
