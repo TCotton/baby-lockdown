@@ -15,6 +15,31 @@ import {RangeRequestsPlugin} from 'workbox-range-requests';
 // Use with precache injection
 precacheAndRoute(self.__WB_MANIFEST);*/
 
+// Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
+registerRoute(
+  ({url}) => url.origin === 'https://fonts.googleapis.com',
+  new StaleWhileRevalidate({
+    cacheName: 'google-fonts-stylesheets',
+  })
+);
+
+// Cache the underlying font files with a cache-first strategy for 1 year.
+registerRoute(
+  ({url}) => url.origin === 'https://fonts.gstatic.com',
+  new CacheFirst({
+    cacheName: 'google-fonts-webfonts',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxEntries: 30,
+      }),
+    ],
+  })
+);
+
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
   // Check to see if the request is a navigation to a new page
@@ -41,7 +66,7 @@ registerRoute(
 // If there is a cache match, then it will properly serve partial responses.
 registerRoute(
   ({url}) => url.pathname.endsWith('.mp4'),
-  new CacheFirst({
+  new NetworkFirst({
     cacheName: 'mp4-cache',
     plugins: [
       new CacheableResponsePlugin({statuses: [200]}),
@@ -73,7 +98,7 @@ registerRoute(
 // Cache images with a Cache First strategy
 registerRoute(
   // Check to see if the request's destination is style for an image
-  ({request}) => request.destination === 'image',
+  ({request, url}) => request.destination === 'image' && !url.pathname.endsWith('.mp4'),
   // Use a Cache First caching strategy
   new CacheFirst({
     // Put all cached files in a cache named 'images'
