@@ -2,7 +2,7 @@ import {connection, mediaQuery} from './main';
 import videojs from 'video.js';
 import 'wavesurfer.js';
 import WaveSurfer from 'videojs-wavesurfer';
-import poster from './../img/eye.jpg';
+
 // Avoid `console` errors in browsers that lack a console.
 (function () {
   let method;
@@ -47,7 +47,6 @@ const options = {
   inactivityTimeout: 0,
   bigPlayButton: false,
   preload: true,
-  poster: poster,
   plugins: {
     wavesurfer: {
       backend: 'MediaElement',
@@ -56,7 +55,6 @@ const options = {
       barGap: mediaQuery ? 2 : 10,
       waveColor: '#152868',
       progressColor: '#cc3215',
-      cursorColor: mediaQuery ? 'darkgrey' : 'white',
       cursorColor: mediaQuery ? 'darkgrey' : 'white',
       barHeight: 1,
       cursorWidth: mediaQuery ? 1 : 10,
