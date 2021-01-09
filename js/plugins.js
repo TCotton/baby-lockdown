@@ -29,15 +29,37 @@ import WaveSurfer from 'videojs-wavesurfer';
 
 let largeVideo;
 let smallVideo;
+let verySmallVideo;
 if (window.location.host !== 'rough-cloud-0056.on.fleek.co') {
   largeVideo = require('./../assets/baby-large.mp4');
   smallVideo = require('./../assets/baby-smaller.mp4');
+  verySmallVideo = require('./../assets/baby-tiny.mp4');
 }
 if (window.location.host === 'rough-cloud-0056.on.fleek.co') {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
+  verySmallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
 }
-const video = connection === 'slow' ? smallVideo : largeVideo;
+let video = connection === 'slow' ? smallVideo : largeVideo;
+
+switch (connection) {
+  case 'fast':
+    console.log('fast connection');
+    video = largeVideo;
+    break;
+  case 'slow':
+    console.log('slow connection');
+    video = smallVideo;
+    break;
+  case 'veryslow':
+    console.log('veryslow');
+    video = verySmallVideo;
+    break;
+  default:
+    console.log('no connection detected');
+    video = verySmallVideo;
+}
+
 const options = {
   controls: true,
   autoplay: false,

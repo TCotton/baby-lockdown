@@ -12,7 +12,7 @@ if (isSupportedEffectiveType) {
   nc = navigator?.connection
   if (nc && nc.effectiveType.length > 0) {
     if (lowfi.indexOf(nc.effectiveType) >= 0) {
-      connection = 'slow'
+      connection = 'veryslow'
     } else {
       connection = 'fast'
     }
@@ -25,7 +25,7 @@ if (isSupportedType) {
   nc = navigator?.connection
   if (nc && nc.type.length > 0) {
     if (lowfi.indexOf(nc.type) >= 0) {
-      connection = 'slow'
+      connection = 'veryslow'
     } else {
       connection = 'fast'
     }
@@ -37,7 +37,7 @@ if (isSupportedType) {
 if (isSupportedSaveData) {
   nc = navigator?.connection;
   if (nc.saveData) {
-    connection = 'slow';
+    connection = 'veryslow';
   }
 }
 
