@@ -1,6 +1,7 @@
 {
     "name": "Four Tet lockdown baby",
     "short_name": "Four Tet lockdown baby",
+    "start_url": "https://rough-cloud-0056.on.fleek.co",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -11,6 +12,12 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+          "src": "/maskable_icon_x1.png",
+          "sizes": "196x196",
+          "type": "image/png",
+          "purpose": "any maskable"
         }
     ],
     "theme_color": "#ffffff",
