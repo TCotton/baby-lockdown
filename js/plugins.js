@@ -29,10 +29,10 @@ import poster from './../img/eye.jpg';
 
 let largeVideo;
 let smallVideo;
-if (window.location.host !== 'rough-cloud-0056.on.fleek.co') {
+/*if (window.location.host !== 'rough-cloud-0056.on.fleek.co') {
   largeVideo = require('./../assets/baby-large.mp4');
   smallVideo = require('./../assets/baby-smaller.mp4');
-}
+}*/
 if (window.location.host === 'rough-cloud-0056.on.fleek.co') {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
