@@ -195,7 +195,7 @@ if (mediaQuery.matches) {
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register("/service-worker.js").then(function (registration) {
+    navigator.serviceWorker.register("/service_worker.js").then(function (registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }, function (err) {
@@ -204,7 +204,7 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
-},{"/Applications/MAMP/htdocs/baby-four-tet/service-worker.js":[["service-worker.js","service-worker.js"],"service-worker.js.map","service-worker.js"]}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"/Applications/MAMP/htdocs/baby-four-tet/service_worker.js":[["service_worker.js","service_worker.js"],"service_worker.js.map","service_worker.js"]}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -232,7 +232,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53948" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56822" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
