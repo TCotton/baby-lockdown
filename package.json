@@ -1,5 +1,5 @@
 {
-  "name": "baby",
+  "name": "lockdownbaby",
   "version": "1.0.0",
   "description": "A lockdown visual remix for FourTet",
   "keywords": [
@@ -7,7 +7,7 @@
     "four tet"
   ],
   "license": "",
-  "author": "",
+  "author": "Andrew Walpole",
   "scripts": {
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
@@ -17,15 +17,32 @@
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-imagemin": "^4.0.2",
+    "parcel-plugin-static-files-copy": "^2.5.0",
+    "parcel-plugin-workbox-precache": "^0.0.6",
     "sass": "^1.32.2"
   },
   "dependencies": {
     "video.js": "^7.10.2",
     "videojs-wavesurfer": "^3.3.1",
-    "wavesurfer.js": "^4.3.0"
+    "wavesurfer.js": "^4.3.0",
+    "workbox-build": "^6.0.2",
+    "workbox-cacheable-response": "^6.0.2",
+    "workbox-core": "^6.0.2",
+    "workbox-expiration": "^6.0.2",
+    "workbox-precaching": "^6.0.2",
+    "workbox-range-requests": "^6.0.2",
+    "workbox-routing": "^6.0.2",
+    "workbox-strategies": "^6.0.2",
+    "workbox-sw": "^6.0.2"
   },
   "resolutions": {
     "browserslist": "4.14.2",
     "caniuse-lite": "1.0.30001129"
+  },
+  "staticFiles": {
+    "staticPath": [
+      "static/eye.jpg"
+    ],
+    "watcherGlob": "**"
   }
 }

@@ -49,6 +49,11 @@ body, html {
   }
 }
 
+.video-js {
+  background-image: url('../static/eye.jpg');
+  background-size: cover;
+}
+
 .video-js .vjs-time-control {
   @include font-calculator($baseFontFamily, 10px);
   div span {
