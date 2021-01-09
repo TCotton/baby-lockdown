@@ -10,10 +10,6 @@ import {CacheableResponsePlugin} from 'workbox-cacheable-response';
 // Used to limit entries in cache, remove entries after a certain period of time
 import {ExpirationPlugin} from 'workbox-expiration';
 import {RangeRequestsPlugin} from 'workbox-range-requests';
-/*import { precacheAndRoute } from 'workbox-precaching';
-
-// Use with precache injection
-precacheAndRoute(self.__WB_MANIFEST);*/
 
 // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
 registerRoute(
