@@ -38,7 +38,7 @@ if (window.location.host !== 'rough-cloud-0056.on.fleek.co') {
 if (window.location.host === 'rough-cloud-0056.on.fleek.co') {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
-  verySmallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
+  verySmallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-tiny.mp4';
 }
 let video = connection === 'slow' ? smallVideo : largeVideo;
 
@@ -57,7 +57,11 @@ switch (connection) {
     break;
   default:
     console.log('no connection detected');
-    video = verySmallVideo;
+    // taking a punt here
+    // as the navigator.connection API is not supported in Safari,
+    // I'm presuming that anything less than 950px pixel is mobile and will
+    // be served the tiny file
+    video = mediaQuery? verySmallVideo: smallVideo;
 }
 
 const options = {
