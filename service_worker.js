@@ -8,35 +8,13 @@ import {ExpirationPlugin} from 'workbox-expiration';
 import {RangeRequestsPlugin} from 'workbox-range-requests';
 import {precacheAndRoute} from 'workbox-precaching';
 
+// service workers not required in development environment
+if(process.env.NODE_ENV === 'development') return;
+
 // Use with precache injection
 precacheAndRoute([
   {url: '/index.html', revision: '383676'},
 ]);
-
-// Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
-registerRoute(
-  ({url}) => url.origin === 'https://fonts.googleapis.com',
-  new StaleWhileRevalidate({
-    cacheName: 'google-fonts-stylesheets',
-  })
-);
-
-// Cache the underlying font files with a cache-first strategy for 1 year.
-registerRoute(
-  ({url}) => url.origin === 'https://fonts.gstatic.com',
-  new CacheFirst({
-    cacheName: 'google-fonts-webfonts',
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-      new ExpirationPlugin({
-        maxAgeSeconds: 60 * 60 * 24 * 365,
-        maxEntries: 30,
-      }),
-    ],
-  })
-);
 
 // Cache page navigations (html) with a Network First strategy
 registerRoute(

@@ -5,7 +5,7 @@ workbox.setConfig({modulePathPrefix: '/vendor/workbox-v6.0.2/'});
 const precacheManifest = [
   {
     "url": "index.html",
-    "revision": "660cf229f34a9a4d6143caf8500f022b"
+    "revision": "8aa672690f2e4d8e7864398f1146b48f"
   },
   {
     "url": "site.webmanifest",
@@ -41,11 +41,15 @@ const precacheManifest = [
   },
   {
     "url": "css.81192ade.css",
-    "revision": "52b5c03ced72e55e970403af3f00d8de"
+    "revision": "6a3a3a8263e9428ac89bf9ba125903e7"
   },
   {
     "url": "css.81192ade.js",
-    "revision": "ea258488d7bc675c9fbc2900cee4fe22"
+    "revision": "303a21ab9ae4ecf90115b54d44892c35"
+  },
+  {
+    "url": "FiraCode-VariableFont_wght.47a0e666.ttf",
+    "revision": "addbb673ce35a6f0a1e08b2757a93846"
   },
   {
     "url": "eye.559f832b.jpg",
@@ -57,7 +61,7 @@ const precacheManifest = [
   },
   {
     "url": "plugins.7f97feee.js",
-    "revision": "d288180a0a7f5bce400884a15981bcc1"
+    "revision": "c87e2f42dba825066dc229b7ca92f515"
   },
   {
     "url": "baby-large.44aa89b6.mp4",
@@ -73,7 +77,7 @@ const precacheManifest = [
   },
   {
     "url": "main.fb6bbcaf.js",
-    "revision": "f0e190d636dc2ecb218f3465a920c94a"
+    "revision": "dd17e7820fc4aadd518febea90e00223"
   }
 ];
 
@@ -7563,35 +7567,17 @@ var _workboxPrecaching = require("workbox-precaching");
 
 // Used for filtering matches based on status code, header, or both
 // Used to limit entries in cache, remove entries after a certain period of time
-// Use with precache injection
+// service workers not required in development environment
+if ("development" === 'development') return; // Use with precache injection
+
 (0, _workboxPrecaching.precacheAndRoute)([{
   url: '/index.html',
   revision: '383676'
-}]); // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
-
-(0, _workboxRouting.registerRoute)(function (_ref) {
-  var url = _ref.url;
-  return url.origin === 'https://fonts.googleapis.com';
-}, new _workboxStrategies.StaleWhileRevalidate({
-  cacheName: 'google-fonts-stylesheets'
-})); // Cache the underlying font files with a cache-first strategy for 1 year.
-
-(0, _workboxRouting.registerRoute)(function (_ref2) {
-  var url = _ref2.url;
-  return url.origin === 'https://fonts.gstatic.com';
-}, new _workboxStrategies.CacheFirst({
-  cacheName: 'google-fonts-webfonts',
-  plugins: [new _workboxCacheableResponse.CacheableResponsePlugin({
-    statuses: [0, 200]
-  }), new _workboxExpiration.ExpirationPlugin({
-    maxAgeSeconds: 60 * 60 * 24 * 365,
-    maxEntries: 30
-  })]
-})); // Cache page navigations (html) with a Network First strategy
+}]); // Cache page navigations (html) with a Network First strategy
 
 (0, _workboxRouting.registerRoute)( // Check to see if the request is a navigation to a new page
-function (_ref3) {
-  var request = _ref3.request;
+function (_ref) {
+  var request = _ref.request;
   return request.mode === 'navigate';
 }, // Use a Network First caching strategy
 new _workboxStrategies.NetworkFirst({
@@ -7609,8 +7595,8 @@ new _workboxStrategies.NetworkFirst({
 // but it won't populate the cache at runtime.
 // If there is a cache match, then it will properly serve partial responses.
 
-(0, _workboxRouting.registerRoute)(function (_ref4) {
-  var url = _ref4.url;
+(0, _workboxRouting.registerRoute)(function (_ref2) {
+  var url = _ref2.url;
   return url.pathname.endsWith('.mp4');
 }, new _workboxStrategies.CacheFirst({
   cacheName: 'mp4-cache',
@@ -7620,8 +7606,8 @@ new _workboxStrategies.NetworkFirst({
 })); // Cache CSS, JS, and Web Worker requests with a Stale While Revalidate strategy
 
 (0, _workboxRouting.registerRoute)( // Check to see if the request's destination is style for stylesheets, script for JavaScript, or worker for web worker
-function (_ref5) {
-  var request = _ref5.request;
+function (_ref3) {
+  var request = _ref3.request;
   return request.destination === 'style' || request.destination === 'script' || request.destination === 'worker';
 }, // Use a Stale While Revalidate caching strategy
 new _workboxStrategies.StaleWhileRevalidate({
@@ -7634,9 +7620,9 @@ new _workboxStrategies.StaleWhileRevalidate({
 })); // Cache images with a Cache First strategy
 
 (0, _workboxRouting.registerRoute)( // Check to see if the request's destination is style for an image
-function (_ref6) {
-  var request = _ref6.request,
-      url = _ref6.url;
+function (_ref4) {
+  var request = _ref4.request,
+      url = _ref4.url;
   return request.destination === 'image' && !url.pathname.endsWith('.mp4');
 }, // Use a Cache First caching strategy
 new _workboxStrategies.CacheFirst({
@@ -7680,7 +7666,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56822" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60413" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
