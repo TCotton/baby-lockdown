@@ -9,11 +9,11 @@ import {
 import {CacheableResponsePlugin} from 'workbox-cacheable-response';
 // Used to limit entries in cache, remove entries after a certain period of time
 import {ExpirationPlugin} from 'workbox-expiration';
-
-import { precacheAndRoute } from 'workbox-precaching';
+import {RangeRequestsPlugin} from 'workbox-range-requests';
+/*import { precacheAndRoute } from 'workbox-precaching';
 
 // Use with precache injection
-precacheAndRoute(self.__WB_MANIFEST);
+precacheAndRoute(self.__WB_MANIFEST);*/
 
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
@@ -28,6 +28,24 @@ registerRoute(
       new CacheableResponsePlugin({
         statuses: [200],
       }),
+    ],
+  }),
+);
+
+// In your service worker:
+// It's up to you to either precache or explicitly call cache.add('movie.mp4')
+// to populate the cache.
+//
+// This route will go against the network if there isn't a cache match,
+// but it won't populate the cache at runtime.
+// If there is a cache match, then it will properly serve partial responses.
+registerRoute(
+  ({url}) => url.pathname.endsWith('.mp4'),
+  new CacheFirst({
+    cacheName: 'mp4-cache',
+    plugins: [
+      new CacheableResponsePlugin({statuses: [200]}),
+      new RangeRequestsPlugin(),
     ],
   }),
 );
