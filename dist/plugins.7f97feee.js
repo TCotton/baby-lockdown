@@ -193,16 +193,19 @@ if (mediaQuery.matches) {
   exports.connection = connection = 'slow';
 }
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register("/service_worker.js").then(function (registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function (err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
+// service workers not required in development environment
+if ("development" === 'production') {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register("/service_worker.js").then(function (registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function (err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
     });
-  });
+  }
 }
 },{"/Applications/MAMP/htdocs/baby-four-tet/service_worker.js":[["service_worker.js","service_worker.js"],"service_worker.js.map","service_worker.js"]}],"node_modules/video.js/node_modules/global/window.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -69744,7 +69747,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60413" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62690" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

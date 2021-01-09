@@ -2670,6 +2670,7 @@ video::-webkit-media-text-track-display {
 }
 body {
   font-family: var(--font-primary);
+  font-weight: 400;
   line-height: 1.5;
   overflow-x: hidden;
   position: relative;

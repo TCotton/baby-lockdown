@@ -41,11 +41,11 @@ const precacheManifest = [
   },
   {
     "url": "css.81192ade.css",
-    "revision": "6a3a3a8263e9428ac89bf9ba125903e7"
+    "revision": "f271d771f25f597425109e5f143b5a4a"
   },
   {
     "url": "css.81192ade.js",
-    "revision": "303a21ab9ae4ecf90115b54d44892c35"
+    "revision": "4940ba8b9ab770f01529a37554dcc03f"
   },
   {
     "url": "FiraCode-VariableFont_wght.47a0e666.ttf",
@@ -61,7 +61,7 @@ const precacheManifest = [
   },
   {
     "url": "plugins.7f97feee.js",
-    "revision": "c87e2f42dba825066dc229b7ca92f515"
+    "revision": "e780dbe8bd26d86b3e9d4cb79f21cd18"
   },
   {
     "url": "baby-large.44aa89b6.mp4",
@@ -77,7 +77,7 @@ const precacheManifest = [
   },
   {
     "url": "main.fb6bbcaf.js",
-    "revision": "dd17e7820fc4aadd518febea90e00223"
+    "revision": "5cfc7c12514545a10426be0bf94a489c"
   }
 ];
 
@@ -7567,9 +7567,7 @@ var _workboxPrecaching = require("workbox-precaching");
 
 // Used for filtering matches based on status code, header, or both
 // Used to limit entries in cache, remove entries after a certain period of time
-// service workers not required in development environment
-if ("development" === 'development') return; // Use with precache injection
-
+// Use with precache injection
 (0, _workboxPrecaching.precacheAndRoute)([{
   url: '/index.html',
   revision: '383676'
@@ -7666,7 +7664,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60413" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62690" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

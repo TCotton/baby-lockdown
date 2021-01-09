@@ -8,9 +8,6 @@ import {ExpirationPlugin} from 'workbox-expiration';
 import {RangeRequestsPlugin} from 'workbox-range-requests';
 import {precacheAndRoute} from 'workbox-precaching';
 
-// service workers not required in development environment
-if(process.env.NODE_ENV === 'development') return;
-
 // Use with precache injection
 precacheAndRoute([
   {url: '/index.html', revision: '383676'},
