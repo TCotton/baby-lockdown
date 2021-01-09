@@ -8,10 +8,8 @@ import {ExpirationPlugin} from 'workbox-expiration';
 import {RangeRequestsPlugin} from 'workbox-range-requests';
 import {precacheAndRoute} from 'workbox-precaching';
 
-// Use with precache injection
-precacheAndRoute([
-  {url: '/index.html', revision: '383676'},
-]);
+/* global self, workbox, precacheManifest */
+precacheAndRoute(precacheManifest);
 
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
