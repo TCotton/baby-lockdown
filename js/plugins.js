@@ -2,7 +2,7 @@ import {connection, mediaQuery} from './main';
 import videojs from 'video.js';
 import 'wavesurfer.js';
 import WaveSurfer from 'videojs-wavesurfer';
-import poster from './../img/eye.jpg';
+//import poster from './../img/eye.jpg';
 // Avoid `console` errors in browsers that lack a console.
 (function () {
   let method;
@@ -29,7 +29,10 @@ import poster from './../img/eye.jpg';
 
 let largeVideo;
 let smallVideo;
-
+if (window.location.host !== 'rough-cloud-0056.on.fleek.co') {
+  largeVideo = require('./../assets/baby-large.mp4');
+  smallVideo = require('./../assets/baby-smaller.mp4');
+}
 if (window.location.host === 'rough-cloud-0056.on.fleek.co') {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
@@ -44,7 +47,7 @@ const options = {
   inactivityTimeout: 0,
   bigPlayButton: false,
   preload: true,
-  poster: poster,
+
   plugins: {
     wavesurfer: {
       backend: 'MediaElement',
@@ -53,7 +56,6 @@ const options = {
       barGap: mediaQuery ? 2 : 10,
       waveColor: '#152868',
       progressColor: '#cc3215',
-      cursorColor: mediaQuery ? 'darkgrey' : 'white',
       cursorColor: mediaQuery ? 'darkgrey' : 'white',
       barHeight: 1,
       cursorWidth: mediaQuery ? 1 : 10,
