@@ -94,7 +94,7 @@ const options = {
       responsive: true,
       partialRender: true,
       scrollParent: true,
-      fillParent: false,
+      fillParent: true,
       interact: false,
     }
   }
