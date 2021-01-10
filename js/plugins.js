@@ -92,7 +92,7 @@ const options = {
       hideScrollbar: true,
       container: '#waveform',
       responsive: true,
-      partialRender: false,
+      partialRender: true,
       scrollParent: true,
       fillParent: true,
       interact: false,
