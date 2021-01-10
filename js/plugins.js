@@ -2,7 +2,7 @@ import {connection, mediaQuery} from './main';
 import videojs from 'video.js';
 import 'wavesurfer.js';
 import WaveSurfer from 'videojs-wavesurfer';
-import data from './peakdata.js';
+import { data } from './peakdata.js';
 
 // Avoid `console` errors in browsers that lack a console.
 (function () {
@@ -112,6 +112,7 @@ let player = videojs('myVideo', options, function () {
   // load file load(url, peaks, preload)
   player.src({src: video, type: 'video/mp4', peaks: data});
 });
+player.debugEnabled_ =  (process.env.NODE_ENV === 'development');
 
 player.on('waveReady', function () {
   console.log('waveform: ready!');

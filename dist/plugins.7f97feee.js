@@ -69600,7 +69600,7 @@ require("wavesurfer.js");
 
 var _videojsWavesurfer = _interopRequireDefault(require("videojs-wavesurfer"));
 
-var _peakdata = _interopRequireDefault(require("./peakdata.js"));
+var _peakdata = require("./peakdata.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -69693,11 +69693,10 @@ var options = {
       hideScrollbar: true,
       container: '#waveform',
       responsive: true,
-      partialRender: false,
+      partialRender: true,
       scrollParent: true,
       fillParent: true,
-      interact: false,
-      barMinHeight: 0.5
+      interact: false
     }
   }
 }; // create player
@@ -69712,9 +69711,10 @@ var player = (0, _video.default)('myVideo', options, function () {
   player.src({
     src: video,
     type: 'video/mp4',
-    peaks: _peakdata.default
+    peaks: _peakdata.data
   });
 });
+player.debugEnabled_ = "development" === 'development';
 player.on('waveReady', function () {
   console.log('waveform: ready!');
   console.log('Thanks for the tunes Four Tet');
@@ -69760,7 +69760,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52511" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65370" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
