@@ -37,7 +37,7 @@ registerRoute(
 // If there is a cache match, then it will properly serve partial responses.
 registerRoute(
   ({url}) => url.pathname.endsWith('.mp4'),
-  new CacheFirst({
+  new NetworkFirst({
     cacheName: 'mp4-cache',
     plugins: [
       new CacheableResponsePlugin({statuses: [200]}),

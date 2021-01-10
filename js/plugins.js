@@ -2,6 +2,7 @@ import {connection, mediaQuery} from './main';
 import videojs from 'video.js';
 import 'wavesurfer.js';
 import WaveSurfer from 'videojs-wavesurfer';
+import data from './peakdata.js';
 
 // Avoid `console` errors in browsers that lack a console.
 (function () {
@@ -72,16 +73,16 @@ const options = {
   height: 540,
   inactivityTimeout: 0,
   bigPlayButton: false,
-  preload: true,
+  preload: false,
   plugins: {
     wavesurfer: {
       backend: 'MediaElement',
       displayMilliseconds: false,
-      debug: true,
+      debug: (process.env.NODE_ENV === 'development'),
       barGap: mediaQuery ? 2 : 10,
       waveColor: '#152868',
       progressColor: '#cc3215',
-      cursorColor: mediaQuery ? 'darkgrey' : 'white',
+      cursorColor: mediaQuery ? 'darkgrey' : '#b3b3b3',
       barHeight: 1,
       cursorWidth: mediaQuery ? 1 : 10,
       height: mediaQuery ? 64 : 128,
@@ -94,7 +95,8 @@ const options = {
       partialRender: false,
       scrollParent: true,
       fillParent: true,
-      interact: false
+      interact: false,
+      barMinHeight: 0.5
     }
   }
 };
@@ -108,8 +110,8 @@ let player = videojs('myVideo', options, function () {
     ' and wavesurfer.js ' + WaveSurfer.VERSION;
   videojs.log(msg);
 
-  // load file
-  player.src({src: video, type: 'video/mp4'});
+  // load file load(url, peaks, preload)
+  player.src({src: video, type: 'video/mp4', peaks: data});
 });
 
 player.on('waveReady', function () {
