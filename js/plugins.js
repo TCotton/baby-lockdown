@@ -96,7 +96,6 @@ const options = {
       scrollParent: true,
       fillParent: true,
       interact: false,
-      barMinHeight: 0.5
     }
   }
 };
