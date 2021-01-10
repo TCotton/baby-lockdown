@@ -95,7 +95,6 @@ const options = {
       partialRender: true,
       scrollParent: true,
       fillParent: false,
-      minPxPerSec: 10,
       interact: false,
     }
   }
