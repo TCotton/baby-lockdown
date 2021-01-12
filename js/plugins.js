@@ -31,12 +31,12 @@ import { data } from './peakdata.js';
 let largeVideo;
 let smallVideo;
 let verySmallVideo;
-if (window.location.host !== 'rough-cloud-0056.on.fleek.co') {
+if (window.location.host !== ('rough-cloud-0056.on.fleek.co' || 'lockdownbaby.eth.link')) {
   largeVideo = require('./../assets/baby-large.mp4');
   smallVideo = require('./../assets/baby-smaller.mp4');
   verySmallVideo = require('./../assets/baby-tiny.mp4');
 }
-if (window.location.host === 'rough-cloud-0056.on.fleek.co') {
+if (window.location.host === ('rough-cloud-0056.on.fleek.co' || 'lockdownbaby.eth.link')) {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   verySmallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-tiny.mp4';
