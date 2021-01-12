@@ -2,7 +2,7 @@ import {connection, mediaQuery} from './main';
 import videojs from 'video.js';
 import 'wavesurfer.js';
 import WaveSurfer from 'videojs-wavesurfer';
-import { data } from './peakdata.js';
+import {data} from './peakdata.js';
 
 // Avoid `console` errors in browsers that lack a console.
 (function () {
@@ -31,12 +31,13 @@ import { data } from './peakdata.js';
 let largeVideo;
 let smallVideo;
 let verySmallVideo;
-if (window.location.host !== ('rough-cloud-0056.on.fleek.co' || 'lockdownbaby.eth.link')) {
+const hosts = ['lockdownbaby.eth.link', 'bafybeihvsziai4abaczo2lbdpdy4jvgozkpwjdc7dzwugti3oztb4pedzm.ipfs.dweb.link'];
+if(hosts.some(x => x !== window.location.host)) {
   largeVideo = require('./../assets/baby-large.mp4');
   smallVideo = require('./../assets/baby-smaller.mp4');
   verySmallVideo = require('./../assets/baby-tiny.mp4');
 }
-if (window.location.host === ('rough-cloud-0056.on.fleek.co' || 'lockdownbaby.eth.link')) {
+if (hosts.some(x => x !== window.location.host)) {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   verySmallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-tiny.mp4';
