@@ -22,8 +22,6 @@ body {
   font-family: var(--font-primary);
   font-weight: 400;
   line-height: 1.5;
-  overflow-x: hidden;
-  position: relative;
   color: rgba(36, 23, 69, 0.9);
   background: black;
   color: white;
@@ -32,7 +30,6 @@ body {
 body::-webkit-scrollbar {
   width: 20px;
   position: relative;
-  z-index: 999;
 }
 
 body::-webkit-scrollbar-track {

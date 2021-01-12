@@ -5,7 +5,7 @@ workbox.setConfig({modulePathPrefix: '/vendor/workbox-v6.0.2/'});
 const precacheManifest = [
   {
     "url": "index.html",
-    "revision": "85bc90fc39e7242784790e112ef755de"
+    "revision": "efe1622aee5859fd1f4a00b85f06aed3"
   },
   {
     "url": "humans.0272c6c3.txt",
@@ -56,8 +56,8 @@ const precacheManifest = [
     "revision": "addbb673ce35a6f0a1e08b2757a93846"
   },
   {
-    "url": "css.2d6a73dd.css",
-    "revision": "fb5c6c11b190f06398c95cf5f41d10ab"
+    "url": "css.9498e296.css",
+    "revision": "055ec4d570f1b672d278ffbaac8b2dd9"
   },
   {
     "url": "eye.82900931.jpg",
