@@ -117,97 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/main.js":[function(require,module,exports) {
-"use strict";
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.mediaQuery = exports.connection = void 0;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-var _navigator, _navigator$connection, _navigator2, _navigator2$connectio, _navigator3, _navigator3$connectio, _navigator4;
+  return bundleURL;
+}
 
-var isSupportedEffectiveType = !!((_navigator = navigator) !== null && _navigator !== void 0 && (_navigator$connection = _navigator.connection) !== null && _navigator$connection !== void 0 && _navigator$connection.effectiveType);
-var isSupportedType = !!((_navigator2 = navigator) !== null && _navigator2 !== void 0 && (_navigator2$connectio = _navigator2.connection) !== null && _navigator2$connectio !== void 0 && _navigator2$connectio.type);
-var isSupportedSaveData = !!((_navigator3 = navigator) !== null && _navigator3 !== void 0 && (_navigator3$connectio = _navigator3.connection) !== null && _navigator3$connectio !== void 0 && _navigator3$connectio.saveData);
-var isSupportedDeviceMemory = !!((_navigator4 = navigator) !== null && _navigator4 !== void 0 && _navigator4.deviceMemory);
-var lowfi = ['slow-2g', '2g', '3g'];
-var nc;
-var nm;
-var connection;
-exports.connection = connection;
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-if (isSupportedEffectiveType) {
-  var _navigator5;
-
-  nc = (_navigator5 = navigator) === null || _navigator5 === void 0 ? void 0 : _navigator5.connection;
-
-  if (nc && nc.effectiveType.length > 0) {
-    if (lowfi.indexOf(nc.effectiveType) >= 0) {
-      exports.connection = connection = 'veryslow';
-    } else {
-      exports.connection = connection = 'fast';
+    if (matches) {
+      return getBaseURL(matches[0]);
     }
-  } else {
-    exports.connection = connection = 'slow';
   }
+
+  return '/';
 }
 
-if (isSupportedType) {
-  var _navigator6;
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
 
-  nc = (_navigator6 = navigator) === null || _navigator6 === void 0 ? void 0 : _navigator6.connection;
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
 
-  if (nc && nc.type.length > 0) {
-    if (lowfi.indexOf(nc.type) >= 0) {
-      exports.connection = connection = 'veryslow';
-    } else {
-      exports.connection = connection = 'fast';
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
     }
-  } else {
-    exports.connection = connection = 'slow';
-  }
+
+    cssTimeout = null;
+  }, 50);
 }
 
-if (isSupportedSaveData) {
-  var _navigator7;
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/inline.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
 
-  nc = (_navigator7 = navigator) === null || _navigator7 === void 0 ? void 0 : _navigator7.connection;
-
-  if (nc.saveData) {
-    exports.connection = connection = 'veryslow';
-  }
-}
-
-if (isSupportedDeviceMemory) {
-  var _navigator8;
-
-  nm = (_navigator8 = navigator) === null || _navigator8 === void 0 ? void 0 : _navigator8.deviceMemory;
-  exports.connection = connection = nm < 1 ? 'slow' : 'fast';
-}
-
-var mediaQuery = window.matchMedia('(max-width: 950px)').matches;
-exports.mediaQuery = mediaQuery;
-
-if (mediaQuery.matches) {
-  exports.connection = connection = 'slow';
-}
-
-// service workers not required in development environment
-if ("development" === 'production') {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register("/service_worker.js").then(function (registration) {
-        // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function (err) {
-        // registration failed :(
-        console.log('ServiceWorker registration failed: ', err);
-      });
-    });
-  }
-}
-},{"/Applications/MAMP/htdocs/baby-four-tet/service_worker.js":[["service_worker.js","service_worker.js"],"service_worker.js.map","service_worker.js"]}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./FiraCode-VariableFont_wght.ttf":[["FiraCode-VariableFont_wght.47a0e666.ttf","css/FiraCode-VariableFont_wght.ttf"],"css/FiraCode-VariableFont_wght.ttf"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -411,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/main.js"], null)
-//# sourceMappingURL=/main.fb6bbcaf.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/inline.8dd6581d.js.map

@@ -69637,7 +69637,7 @@ if (hosts.some(function (x) {
 }
 
 if (hosts.some(function (x) {
-  return x !== window.location.host;
+  return x === window.location.host;
 })) {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
@@ -69765,7 +69765,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64642" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63509" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

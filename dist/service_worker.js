@@ -5,7 +5,7 @@ workbox.setConfig({modulePathPrefix: '/vendor/workbox-v6.0.2/'});
 const precacheManifest = [
   {
     "url": "index.html",
-    "revision": "28f9969b1682e686d65091ca3f272bf7"
+    "revision": "6c73491f80e30e4fa89b9d9707c96da2"
   },
   {
     "url": "humans.0272c6c3.txt",
@@ -48,12 +48,16 @@ const precacheManifest = [
     "revision": "7f4594d43072353d93af8d341a1a71eb"
   },
   {
-    "url": "css.929917af.css",
-    "revision": "503705f5dc907441d026070e18ae3eaa"
+    "url": "inline.9ddf932b.css",
+    "revision": "ce7868decbe703dcd769706ebcab5ce2"
   },
   {
     "url": "FiraCode-VariableFont_wght.308cd39e.ttf",
     "revision": "addbb673ce35a6f0a1e08b2757a93846"
+  },
+  {
+    "url": "css.0e35e7d1.css",
+    "revision": "3b4be4135501d7d12d7fd1f521040b57"
   },
   {
     "url": "eye.82900931.jpg",
