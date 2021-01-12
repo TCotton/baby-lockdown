@@ -5,7 +5,7 @@ workbox.setConfig({modulePathPrefix: '/vendor/workbox-v6.0.2/'});
 const precacheManifest = [
   {
     "url": "index.html",
-    "revision": "4c4c97818c52559ea7f7a4abf259a96b"
+    "revision": "9a1bf69231a3b4f2c90596f212b03feb"
   },
   {
     "url": "humans.0272c6c3.txt",
