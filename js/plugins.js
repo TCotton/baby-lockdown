@@ -37,7 +37,7 @@ if(hosts.some(x => x !== window.location.host)) {
   smallVideo = require('./../assets/baby-smaller.mp4');
   verySmallVideo = require('./../assets/baby-tiny.mp4');
 }
-if (hosts.some(x => x !== window.location.host)) {
+if (hosts.some(x => x === window.location.host)) {
   smallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   largeVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-smaller.mp4';
   verySmallVideo = 'https://tcotton-team-bucket.storage.fleek.co/baby/baby-tiny.mp4';
