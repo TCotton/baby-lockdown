@@ -7,6 +7,7 @@ body {
   line-height: #{$baseLineHeight};
   overflow-x: hidden;
   position: relative;
+  z-index: -1;
   color: rgba(36, 23, 69, 0.9);
   background: black;
   color: white;
@@ -15,7 +16,6 @@ body {
 body::-webkit-scrollbar {
   width: 20px;
   position: relative;
-  z-index: 999;
 }
 
 body::-webkit-scrollbar-track {
