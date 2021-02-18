@@ -17,8 +17,7 @@ body {
   font-weight: 400;
   line-height: #{$baseLineHeight};
   color: rgba(36, 23, 69, 0.9);
-  background: black;
-  color: white;
+  color: black;
 }
 
 body::-webkit-scrollbar {
@@ -27,19 +26,20 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: white;
+  background: inherit;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: black;
+  background-color: inherit;
   border-radius: 0;
-  border: 3px solid white;
+  border: 3px solid inherit;
 }
 
 html {
   font-size: #{$baseFontSize};
   overflow-x: hidden;
-  background: black;
+  background: url('../img/background.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 body, html {
@@ -163,9 +163,13 @@ video {
 
 .left-section {
   width: 20%;
+  background: rgba(255, 255, 255, 0.5);
+  padding: var(--marginx2);
+  border-radius: 50%;
   @media (max-width: $first_query) {
     width: auto;
     row-gap: 100px;
+    border-radius: 5%;
   }
   p {
     @include font-calculator($baseFontFamily, 16px);
@@ -174,6 +178,8 @@ video {
 
 .right-section {
   width: 20%;
+  background: rgba(255, 255, 255, 0.5);
+  padding: var(--marginx2);
 
   @media (max-width: $first_query) {
     width: auto;
@@ -199,6 +205,10 @@ video {
   &:hover {
     fill: #fac32d
   }
+}
+
+:root {
+  --link-colour: lighten('#000000', 90%);
 }
 
 a:link {
