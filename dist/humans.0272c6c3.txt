@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <name> -- <role> -- <twitter>
+    andy walpole -- web developer = @AndrewWalpole5
+
+# THANKS
+
+    <name>
+    four tet
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    video.js, videojs-wavesurfer, wavesurfer.js
